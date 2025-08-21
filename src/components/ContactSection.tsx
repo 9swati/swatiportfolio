@@ -41,9 +41,16 @@ const ContactSection = () => {
   };
 
   return (
-    <section id="contact" className="py-20">
-      <div className="container mx-auto px-4">
-        <div className="text-center mb-16">
+    <section id="contact" className="py-20 relative overflow-hidden">
+      {/* Animated Background */}
+      <div className="absolute inset-0 pointer-events-none">
+        <div className="absolute top-1/4 right-10 w-32 h-32 bg-gradient-primary/5 rounded-full animate-float"></div>
+        <div className="absolute bottom-1/4 left-10 w-24 h-24 bg-primary/10 rounded-full animate-float-delayed blur-xl"></div>
+        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-40 h-40 bg-gradient-secondary/10 rounded-full animate-pulse"></div>
+      </div>
+      
+      <div className="container mx-auto px-4 relative">
+        <div className="text-center mb-16 animate-slide-up">
           <h2 className="text-3xl md:text-4xl font-bold mb-4">
             Get In <span className="bg-gradient-primary bg-clip-text text-transparent">Touch</span>
           </h2>
@@ -54,7 +61,7 @@ const ContactSection = () => {
 
         <div className="grid lg:grid-cols-2 gap-12 max-w-6xl mx-auto">
           {/* Contact Information */}
-          <div className="space-y-8">
+          <div className="space-y-8 animate-slide-in-left">
             <div>
               <h3 className="text-2xl font-semibold mb-6 flex items-center gap-3">
                 <MessageSquare className="h-6 w-6 text-primary" />
@@ -68,8 +75,8 @@ const ContactSection = () => {
 
             <div className="space-y-6">
               {/* Contact Details */}
-              <div className="flex items-center gap-4 p-4 rounded-lg bg-gradient-secondary hover:shadow-soft transition-all duration-300">
-                <div className="p-3 bg-gradient-primary rounded-lg">
+              <div className="flex items-center gap-4 p-4 rounded-lg bg-gradient-secondary hover:shadow-soft hover:scale-105 transition-all duration-300 animate-slide-up [animation-delay:200ms]">
+                <div className="p-3 bg-gradient-primary rounded-lg animate-pulse-glow">
                   <Mail className="h-5 w-5 text-white" />
                 </div>
                 <div>
@@ -83,8 +90,8 @@ const ContactSection = () => {
                 </div>
               </div>
 
-              <div className="flex items-center gap-4 p-4 rounded-lg bg-gradient-secondary hover:shadow-soft transition-all duration-300">
-                <div className="p-3 bg-gradient-primary rounded-lg">
+              <div className="flex items-center gap-4 p-4 rounded-lg bg-gradient-secondary hover:shadow-soft hover:scale-105 transition-all duration-300 animate-slide-up [animation-delay:400ms]">
+                <div className="p-3 bg-gradient-primary rounded-lg animate-wiggle">
                   <Phone className="h-5 w-5 text-white" />
                 </div>
                 <div>
@@ -98,8 +105,8 @@ const ContactSection = () => {
                 </div>
               </div>
 
-              <div className="flex items-center gap-4 p-4 rounded-lg bg-gradient-secondary hover:shadow-soft transition-all duration-300">
-                <div className="p-3 bg-gradient-primary rounded-lg">
+              <div className="flex items-center gap-4 p-4 rounded-lg bg-gradient-secondary hover:shadow-soft hover:scale-105 transition-all duration-300 animate-slide-up [animation-delay:600ms]">
+                <div className="p-3 bg-gradient-primary rounded-lg animate-bounce-gentle">
                   <MapPin className="h-5 w-5 text-white" />
                 </div>
                 <div>
@@ -127,10 +134,10 @@ const ContactSection = () => {
           </div>
 
           {/* Contact Form */}
-          <Card className="border-0 shadow-glow">
+          <Card className="border-0 shadow-glow hover:shadow-xl hover:scale-[1.02] transition-all duration-500 bg-background/90 backdrop-blur-md animate-slide-up [animation-delay:300ms]">
             <CardHeader>
               <CardTitle className="flex items-center gap-3">
-                <div className="p-2 bg-gradient-primary rounded-lg">
+                <div className="p-2 bg-gradient-primary rounded-lg animate-pulse-glow">
                   <Send className="h-5 w-5 text-white" />
                 </div>
                 Send me a message
@@ -147,7 +154,7 @@ const ContactSection = () => {
                     onChange={handleInputChange}
                     placeholder="Your full name"
                     required
-                    className="transition-all duration-300 focus:shadow-soft"
+                    className="transition-all duration-300 focus:shadow-soft focus:scale-[1.02] hover:shadow-sm"
                   />
                 </div>
 
@@ -161,7 +168,7 @@ const ContactSection = () => {
                     onChange={handleInputChange}
                     placeholder="your.email@example.com"
                     required
-                    className="transition-all duration-300 focus:shadow-soft"
+                    className="transition-all duration-300 focus:shadow-soft focus:scale-[1.02] hover:shadow-sm"
                   />
                 </div>
 
@@ -175,7 +182,7 @@ const ContactSection = () => {
                     placeholder="Tell me about your project or just say hello!"
                     rows={5}
                     required
-                    className="transition-all duration-300 focus:shadow-soft resize-none"
+                    className="transition-all duration-300 focus:shadow-soft focus:scale-[1.02] hover:shadow-sm resize-none"
                   />
                 </div>
 
@@ -183,7 +190,7 @@ const ContactSection = () => {
                   type="submit" 
                   variant="hero" 
                   size="lg" 
-                  className="w-full group"
+                  className="w-full group hover:scale-105 transition-all duration-300"
                 >
                   <Send className="mr-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
                   Send Message

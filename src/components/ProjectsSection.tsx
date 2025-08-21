@@ -43,9 +43,16 @@ const projects = [
 
 const ProjectsSection = () => {
   return (
-    <section id="projects" className="py-20 bg-gradient-secondary">
-      <div className="container mx-auto px-4">
-        <div className="text-center mb-16">
+    <section id="projects" className="py-20 bg-gradient-secondary relative overflow-hidden">
+      {/* Floating Tech Icons */}
+      <div className="absolute inset-0 pointer-events-none">
+        <div className="absolute top-20 left-1/4 w-16 h-16 bg-gradient-primary/10 rounded-lg rotate-45 animate-float"></div>
+        <div className="absolute top-1/2 right-1/4 w-12 h-12 bg-primary/5 rounded-full animate-float-delayed"></div>
+        <div className="absolute bottom-32 left-1/3 w-20 h-20 bg-gradient-secondary/20 rounded-lg rotate-12 animate-float-slow"></div>
+      </div>
+      
+      <div className="container mx-auto px-4 relative">
+        <div className="text-center mb-16 animate-slide-up">
           <h2 className="text-3xl md:text-4xl font-bold mb-4">
             My <span className="bg-gradient-primary bg-clip-text text-transparent">Projects</span>
           </h2>
@@ -58,11 +65,12 @@ const ProjectsSection = () => {
           {projects.map((project, index) => (
             <Card 
               key={index} 
-              className="group hover:shadow-glow transition-all duration-300 hover:-translate-y-2 border-0 bg-background/80 backdrop-blur-sm"
+              className="group hover:shadow-glow transition-all duration-500 hover:-translate-y-4 hover:scale-105 border-0 bg-background/80 backdrop-blur-sm animate-slide-up hover:animate-pulse-glow"
+              style={{ animationDelay: `${index * 200}ms` }}
             >
               <CardHeader className="pb-4">
                 <div className="flex items-center gap-3 mb-3">
-                  <div className="p-3 bg-gradient-primary rounded-lg group-hover:scale-110 transition-transform duration-300">
+                  <div className="p-3 bg-gradient-primary rounded-lg group-hover:scale-110 group-hover:rotate-12 transition-all duration-300 shadow-glow animate-bounce-gentle">
                     <project.icon className="h-6 w-6 text-white" />
                   </div>
                   <div className="flex-1">
@@ -83,7 +91,8 @@ const ProjectsSection = () => {
                   {project.technologies.map((tech, techIndex) => (
                     <span
                       key={techIndex}
-                      className="px-3 py-1 bg-gradient-primary text-white text-xs rounded-full"
+                      className="px-3 py-1 bg-gradient-primary text-white text-xs rounded-full hover:scale-110 transition-transform duration-300 animate-slide-in-left shadow-sm"
+                      style={{ animationDelay: `${techIndex * 100 + index * 200}ms` }}
                     >
                       {tech}
                     </span>

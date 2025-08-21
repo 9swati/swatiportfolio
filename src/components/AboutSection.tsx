@@ -3,9 +3,16 @@ import { GraduationCap, User, Calendar } from "lucide-react";
 
 const AboutSection = () => {
   return (
-    <section id="about" className="py-20 bg-gradient-secondary">
-      <div className="container mx-auto px-4">
-        <div className="text-center mb-16">
+    <section id="about" className="py-20 bg-gradient-secondary relative overflow-hidden">
+      {/* Floating Background Elements */}
+      <div className="absolute inset-0 pointer-events-none">
+        <div className="absolute top-20 left-10 w-32 h-32 bg-gradient-primary/10 rounded-full animate-float blur-xl"></div>
+        <div className="absolute top-40 right-20 w-24 h-24 bg-gradient-secondary/20 rounded-full animate-float-delayed blur-xl"></div>
+        <div className="absolute bottom-20 left-1/4 w-40 h-40 bg-primary/5 rounded-full animate-float-slow blur-xl"></div>
+      </div>
+      
+      <div className="container mx-auto px-4 relative">
+        <div className="text-center mb-16 animate-slide-up">
           <h2 className="text-3xl md:text-4xl font-bold mb-4">
             About <span className="bg-gradient-primary bg-clip-text text-transparent">Me</span>
           </h2>
@@ -16,9 +23,9 @@ const AboutSection = () => {
 
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           {/* Bio Section */}
-          <div className="space-y-6">
+          <div className="space-y-6 animate-slide-in-left">
             <div className="flex items-center gap-3 mb-6">
-              <div className="p-2 bg-gradient-primary rounded-lg">
+              <div className="p-2 bg-gradient-primary rounded-lg shadow-glow animate-pulse-glow">
                 <User className="h-6 w-6 text-white" />
               </div>
               <h3 className="text-2xl font-semibold">Who I Am</h3>
@@ -38,18 +45,18 @@ const AboutSection = () => {
           </div>
 
           {/* Education Section */}
-          <div className="space-y-6">
+          <div className="space-y-6 animate-slide-up [animation-delay:300ms]">
             <div className="flex items-center gap-3 mb-6">
-              <div className="p-2 bg-gradient-primary rounded-lg">
+              <div className="p-2 bg-gradient-primary rounded-lg shadow-glow animate-bounce-gentle">
                 <GraduationCap className="h-6 w-6 text-white" />
               </div>
               <h3 className="text-2xl font-semibold">Education</h3>
             </div>
             
-            <Card className="border-0 shadow-soft hover:shadow-glow transition-all duration-300">
+            <Card className="border-0 shadow-soft hover:shadow-glow transition-all duration-500 hover:-translate-y-2 hover:scale-[1.02] bg-background/80 backdrop-blur-sm">
               <CardContent className="p-6">
                 <div className="flex items-start gap-4">
-                  <div className="p-3 bg-gradient-primary rounded-lg shrink-0">
+                  <div className="p-3 bg-gradient-primary rounded-lg shrink-0 animate-wiggle hover:animate-none">
                     <Calendar className="h-6 w-6 text-white" />
                   </div>
                   <div className="space-y-2">
