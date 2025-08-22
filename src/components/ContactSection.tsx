@@ -168,7 +168,7 @@ const ContactSection = () => {
 
                 <div className="space-y-2">
                   <Label htmlFor="message">Message</Label>
-                  <Textarea id="message" name="message" value={formData.message} onChange={handleInputChange} placeholder="Tell me about your project or just say hello!" rows={5} required className="transition-all duration-300 focus:shadow-soft focus:scale-[1.02] hover:shadow-sm resize-none" />
+                  <Textarea id="message" name="message" value={formData.message} onChange={handleInputChange} placeholder="Please write your message" rows={5} required className="transition-all duration-300 focus:shadow-soft focus:scale-[1.02] hover:shadow-sm resize-none" />
                 </div>
 
                 <Button type="submit" variant="hero" size="lg" disabled={isSubmitting} className="w-full group hover:scale-105 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed">
