@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Download, Code, Database, Globe, Star, Sparkles } from "lucide-react";
-import swatiPortrait from "@/assets/swati-portrait.jpg";
+import swatiPhoto from "@/assets/swati-photo.jpg";
 
 const HeroSection = () => {
   const scrollToSection = (sectionId: string) => {
@@ -139,7 +139,7 @@ const HeroSection = () => {
               {/* Main image container with glassmorphism */}
               <div className="relative w-80 h-80 md:w-96 md:h-96 rounded-full overflow-hidden border-4 border-white/20 backdrop-blur-sm shadow-glow group-hover:shadow-[0_0_60px_hsl(258_90%_66%_/_0.4)] transition-all duration-500">
                 <img 
-                  src={swatiPortrait}
+                  src={swatiPhoto}
                   alt="Swati Mali - Full Stack Developer"
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                 />
