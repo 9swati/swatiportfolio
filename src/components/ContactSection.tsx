@@ -104,7 +104,7 @@ const ContactSection = () => {
             <div className="space-y-6">
               {/* Contact Details */}
               <div className="flex items-center gap-4 p-4 rounded-lg bg-gradient-secondary hover:shadow-soft hover:scale-105 transition-all duration-300 animate-slide-up [animation-delay:200ms]">
-                <div className="p-3 bg-gradient-primary rounded-lg animate-pulse-glow">
+                <div className="p-3 bg-gradient-primary rounded-lg">
                   <Mail className="h-5 w-5 text-white" />
                 </div>
                 <div>
@@ -119,7 +119,7 @@ const ContactSection = () => {
               </div>
 
               <div className="flex items-center gap-4 p-4 rounded-lg bg-gradient-secondary hover:shadow-soft hover:scale-105 transition-all duration-300 animate-slide-up [animation-delay:400ms]">
-                <div className="p-3 bg-gradient-primary rounded-lg animate-wiggle">
+                <div className="p-3 bg-gradient-primary rounded-lg">
                   <Phone className="h-5 w-5 text-white" />
                 </div>
                 <div>
@@ -134,7 +134,7 @@ const ContactSection = () => {
               </div>
 
               <div className="flex items-center gap-4 p-4 rounded-lg bg-gradient-secondary hover:shadow-soft hover:scale-105 transition-all duration-300 animate-slide-up [animation-delay:600ms]">
-                <div className="p-3 bg-gradient-primary rounded-lg animate-bounce-gentle">
+                <div className="p-3 bg-gradient-primary rounded-lg">
                   <MapPin className="h-5 w-5 text-white" />
                 </div>
                 <div>
@@ -165,7 +165,7 @@ const ContactSection = () => {
           <Card className="border-0 shadow-glow hover:shadow-xl hover:scale-[1.02] transition-all duration-500 bg-background/90 backdrop-blur-md animate-slide-up [animation-delay:300ms]">
             <CardHeader>
               <CardTitle className="flex items-center gap-3">
-                <div className="p-2 bg-gradient-primary rounded-lg animate-pulse-glow">
+                <div className="p-2 bg-gradient-primary rounded-lg">
                   <Send className="h-5 w-5 text-white" />
                 </div>
                 Send me a message

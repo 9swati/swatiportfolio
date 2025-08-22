@@ -79,7 +79,7 @@ const SkillsSection = () => {
             >
               <CardContent className="p-6">
                 <div className="flex items-center gap-3 mb-4">
-                  <div className="p-3 bg-gradient-primary rounded-lg group-hover:scale-110 group-hover:rotate-12 transition-all duration-300 shadow-glow animate-bounce-gentle">
+                  <div className="p-3 bg-gradient-primary rounded-lg group-hover:scale-110 transition-all duration-300 shadow-glow">
                     <skillGroup.icon className="h-6 w-6 text-white" />
                   </div>
                   <h3 className="text-lg font-semibold">{skillGroup.category}</h3>
@@ -92,7 +92,7 @@ const SkillsSection = () => {
                       className="flex items-center gap-2 p-2 rounded-lg bg-background/50 hover:bg-background/80 hover:scale-105 transition-all duration-300 group/skill"
                       style={{ animationDelay: `${skillIndex * 50}ms` }}
                     >
-                      <div className="w-2 h-2 bg-gradient-primary rounded-full animate-pulse group-hover/skill:animate-ping"></div>
+                      <div className="w-2 h-2 bg-gradient-primary rounded-full"></div>
                       <span className="text-sm font-medium group-hover/skill:text-primary transition-colors">{skill}</span>
                     </div>
                   ))}

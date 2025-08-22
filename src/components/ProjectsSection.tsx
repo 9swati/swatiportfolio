@@ -70,7 +70,7 @@ const ProjectsSection = () => {
             >
               <CardHeader className="pb-4">
                 <div className="flex items-center gap-3 mb-3">
-                  <div className="p-3 bg-gradient-primary rounded-lg group-hover:scale-110 group-hover:rotate-12 transition-all duration-300 shadow-glow animate-bounce-gentle">
+                  <div className="p-3 bg-gradient-primary rounded-lg group-hover:scale-110 transition-all duration-300 shadow-glow">
                     <project.icon className="h-6 w-6 text-white" />
                   </div>
                   <div className="flex-1">

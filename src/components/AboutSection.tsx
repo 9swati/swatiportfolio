@@ -25,7 +25,7 @@ const AboutSection = () => {
           {/* Bio Section */}
           <div className="space-y-6 animate-slide-in-left">
             <div className="flex items-center gap-3 mb-6">
-              <div className="p-2 bg-gradient-primary rounded-lg shadow-glow animate-pulse-glow">
+              <div className="p-2 bg-gradient-primary rounded-lg shadow-glow">
                 <User className="h-6 w-6 text-white" />
               </div>
               <h3 className="text-2xl font-semibold">Who I Am</h3>
@@ -47,7 +47,7 @@ const AboutSection = () => {
           {/* Education Section */}
           <div className="space-y-6 animate-slide-up [animation-delay:300ms]">
             <div className="flex items-center gap-3 mb-6">
-              <div className="p-2 bg-gradient-primary rounded-lg shadow-glow animate-bounce-gentle">
+              <div className="p-2 bg-gradient-primary rounded-lg shadow-glow">
                 <GraduationCap className="h-6 w-6 text-white" />
               </div>
               <h3 className="text-2xl font-semibold">Education</h3>
@@ -56,7 +56,7 @@ const AboutSection = () => {
             <Card className="border-0 shadow-soft hover:shadow-glow transition-all duration-500 hover:-translate-y-2 hover:scale-[1.02] bg-background/80 backdrop-blur-sm">
               <CardContent className="p-6">
                 <div className="flex items-start gap-4">
-                  <div className="p-3 bg-gradient-primary rounded-lg shrink-0 animate-wiggle hover:animate-none">
+                  <div className="p-3 bg-gradient-primary rounded-lg shrink-0">
                     <Calendar className="h-6 w-6 text-white" />
                   </div>
                   <div className="space-y-2">
