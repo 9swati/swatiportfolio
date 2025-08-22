@@ -107,7 +107,20 @@ const HeroSection = () => {
                 {/* Button glow effect */}
                 <div className="absolute inset-0 bg-gradient-primary opacity-0 group-hover:opacity-20 transition-opacity duration-300"></div>
               </Button>
-              <Button variant="outline" size="lg" onClick={() => scrollToSection('contact')} className="group backdrop-blur-sm bg-background/50 border-primary/30 hover:bg-gradient-primary/10 hover:border-primary/50">
+              <Button 
+                variant="outline" 
+                size="lg" 
+                onClick={() => {
+                  const link = document.createElement('a');
+                  link.href = 'https://umdlzksdeayjjrbuvrol.supabase.co/storage/v1/object/sign/Resume%20for%20portfolio/Swati%20Mali_9518978619%20(4).pdf?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV9hMjljYTFlNi00OWJiLTRmOGYtYjAxYi02MDEzYWZmNjVkMTkiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJSZXN1bWUgZm9yIHBvcnRmb2xpby9Td2F0aSBNYWxpXzk1MTg5Nzg2MTkgKDQpLnBkZiIsImlhdCI6MTc1NTg1ODIyMSwiZXhwIjoxNzg3Mzk0MjIxfQ.ZVviQnbJ9lyFDBZN-yn5Ihq7-FJp3QIDKAE3iG-0KK4';
+                  link.download = 'Swati_Mali_Resume.pdf';
+                  link.target = '_blank';
+                  document.body.appendChild(link);
+                  link.click();
+                  document.body.removeChild(link);
+                }} 
+                className="group backdrop-blur-sm bg-background/50 border-primary/30 hover:bg-gradient-primary/10 hover:border-primary/50"
+              >
                 <Download className="mr-2 h-4 w-4 group-hover:animate-bounce" />
                 Download CV
               </Button>
