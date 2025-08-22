@@ -6,16 +6,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import { useToast } from "@/hooks/use-toast";
 import emailjs from '@emailjs/browser';
-import { 
-  Mail, 
-  Phone, 
-  MapPin, 
-  Send, 
-  Linkedin, 
-  Github,
-  MessageSquare 
-} from "lucide-react";
-
+import { Mail, Phone, MapPin, Send, Linkedin, Github, MessageSquare } from "lucide-react";
 const ContactSection = () => {
   const [formData, setFormData] = useState({
     name: "",
@@ -23,53 +14,51 @@ const ContactSection = () => {
     message: ""
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const { toast } = useToast();
-
+  const {
+    toast
+  } = useToast();
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
-
     try {
       // EmailJS configuration
       const serviceId = 'service_ovtxal9';
       const templateId = 'template_zxeh2ul';
       const publicKey = 'TZEMpKCst39ASwCC1';
-
       const templateParams = {
         from_name: formData.name,
         from_email: formData.email,
         message: formData.message,
-        to_name: 'Swati Mali',
+        to_name: 'Swati Mali'
       };
-
       await emailjs.send(serviceId, templateId, templateParams, publicKey);
-      
       toast({
         title: "Message sent successfully!",
-        description: "Thank you for your message. I'll get back to you soon!",
+        description: "Thank you for your message. I'll get back to you soon!"
       });
-      setFormData({ name: "", email: "", message: "" });
+      setFormData({
+        name: "",
+        email: "",
+        message: ""
+      });
     } catch (error) {
       console.error('EmailJS Error:', error);
       toast({
         title: "Failed to send message",
         description: "Please try again or contact me directly via email.",
-        variant: "destructive",
+        variant: "destructive"
       });
     } finally {
       setIsSubmitting(false);
     }
   };
-
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     setFormData(prev => ({
       ...prev,
       [e.target.name]: e.target.value
     }));
   };
-
-  return (
-    <section id="contact" className="py-20 relative overflow-hidden">
+  return <section id="contact" className="py-20 relative overflow-hidden">
       {/* Animated Background */}
       <div className="absolute inset-0 pointer-events-none">
         <div className="absolute top-1/4 right-10 w-32 h-32 bg-gradient-primary/5 rounded-full animate-float"></div>
@@ -109,10 +98,7 @@ const ContactSection = () => {
                 </div>
                 <div>
                   <h4 className="font-semibold">Email</h4>
-                  <a 
-                    href="mailto:swati.mali912@gmail.com"
-                    className="text-muted-foreground hover:text-primary transition-colors"
-                  >
+                  <a href="mailto:swati.mali912@gmail.com" className="text-muted-foreground hover:text-primary transition-colors">
                     swati.mali912@gmail.com
                   </a>
                 </div>
@@ -124,10 +110,7 @@ const ContactSection = () => {
                 </div>
                 <div>
                   <h4 className="font-semibold">Phone</h4>
-                  <a 
-                    href="tel:+919518978619"
-                    className="text-muted-foreground hover:text-primary transition-colors"
-                  >
+                  <a href="tel:+919518978619" className="text-muted-foreground hover:text-primary transition-colors">
                     +91 9518978619
                   </a>
                 </div>
@@ -139,7 +122,7 @@ const ContactSection = () => {
                 </div>
                 <div>
                   <h4 className="font-semibold">Location</h4>
-                  <p className="text-muted-foreground">Kolhapur, Maharashtra, India</p>
+                  <p className="text-muted-foreground">Pune, Maharashtra, India</p>
                 </div>
               </div>
             </div>
@@ -175,52 +158,20 @@ const ContactSection = () => {
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div className="space-y-2">
                   <Label htmlFor="name">Full Name</Label>
-                  <Input
-                    id="name"
-                    name="name"
-                    value={formData.name}
-                    onChange={handleInputChange}
-                    placeholder="Your full name"
-                    required
-                    className="transition-all duration-300 focus:shadow-soft focus:scale-[1.02] hover:shadow-sm"
-                  />
+                  <Input id="name" name="name" value={formData.name} onChange={handleInputChange} placeholder="Your full name" required className="transition-all duration-300 focus:shadow-soft focus:scale-[1.02] hover:shadow-sm" />
                 </div>
 
                 <div className="space-y-2">
                   <Label htmlFor="email">Email Address</Label>
-                  <Input
-                    id="email"
-                    name="email"
-                    type="email"
-                    value={formData.email}
-                    onChange={handleInputChange}
-                    placeholder="your.email@example.com"
-                    required
-                    className="transition-all duration-300 focus:shadow-soft focus:scale-[1.02] hover:shadow-sm"
-                  />
+                  <Input id="email" name="email" type="email" value={formData.email} onChange={handleInputChange} placeholder="your.email@example.com" required className="transition-all duration-300 focus:shadow-soft focus:scale-[1.02] hover:shadow-sm" />
                 </div>
 
                 <div className="space-y-2">
                   <Label htmlFor="message">Message</Label>
-                  <Textarea
-                    id="message"
-                    name="message"
-                    value={formData.message}
-                    onChange={handleInputChange}
-                    placeholder="Tell me about your project or just say hello!"
-                    rows={5}
-                    required
-                    className="transition-all duration-300 focus:shadow-soft focus:scale-[1.02] hover:shadow-sm resize-none"
-                  />
+                  <Textarea id="message" name="message" value={formData.message} onChange={handleInputChange} placeholder="Tell me about your project or just say hello!" rows={5} required className="transition-all duration-300 focus:shadow-soft focus:scale-[1.02] hover:shadow-sm resize-none" />
                 </div>
 
-                <Button 
-                  type="submit" 
-                  variant="hero" 
-                  size="lg" 
-                  disabled={isSubmitting}
-                  className="w-full group hover:scale-105 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed"
-                >
+                <Button type="submit" variant="hero" size="lg" disabled={isSubmitting} className="w-full group hover:scale-105 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed">
                   <Send className="mr-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
                   {isSubmitting ? "Sending..." : "Send Message"}
                 </Button>
@@ -229,8 +180,6 @@ const ContactSection = () => {
           </Card>
         </div>
       </div>
-    </section>
-  );
+    </section>;
 };
-
 export default ContactSection;
