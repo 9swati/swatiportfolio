@@ -1,9 +1,7 @@
 import { Card, CardContent } from "@/components/ui/card";
 import { GraduationCap, User, Calendar } from "lucide-react";
-
 const AboutSection = () => {
-  return (
-    <section id="about" className="py-20 bg-gradient-secondary relative overflow-hidden">
+  return <section id="about" className="py-20 bg-gradient-secondary relative overflow-hidden">
       {/* Floating Background Elements */}
       <div className="absolute inset-0 pointer-events-none">
         <div className="absolute top-20 left-10 w-32 h-32 bg-gradient-primary/10 rounded-full animate-float blur-xl"></div>
@@ -35,9 +33,7 @@ const AboutSection = () => {
               I am Swati Mali, a dynamic and result-oriented Full Stack Developer with a Bachelor's degree in Computer Science Engineering (BE). As a fresher software developer, I specialize in both front-end and back-end technologies.
             </p>
             
-            <p className="text-muted-foreground leading-relaxed">
-              I am proficient in modern programming languages such as Java, C++, and JavaScript, with a strong understanding of OOP concepts. I also have hands-on experience with database management tools like MongoDB and MySQL.
-            </p>
+            <p className="text-muted-foreground leading-relaxed">I am proficient in modern programming languages such as Java, C++, and JavaScript, ReactJS, with a strong understanding of OOP concepts. I also have hands-on experience with database management tools like MongoDB and MySQL.</p>
             
             <p className="text-muted-foreground leading-relaxed">
               With strong problem-solving and analytical skills, I am passionate about continuous learning and staying up-to-date with the latest tech trends.
@@ -81,8 +77,6 @@ const AboutSection = () => {
           </div>
         </div>
       </div>
-    </section>
-  );
+    </section>;
 };
-
 export default AboutSection;
