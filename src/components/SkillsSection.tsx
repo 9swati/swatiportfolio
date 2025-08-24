@@ -1,20 +1,11 @@
-import { useState } from "react";
 import { Card, CardContent } from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
 import { 
   Code2, 
   Database, 
   Globe, 
   Cpu, 
   GitBranch, 
-  Puzzle,
-  Coffee,
-  Smartphone,
-  Plus,
-  Minus,
-  Settings,
-  Save,
-  X
+  Puzzle
 } from "lucide-react";
 
 const skills = [
@@ -57,38 +48,6 @@ const skills = [
 ];
 
 const SkillsSection = () => {
-  const [isAdminMode, setIsAdminMode] = useState(false);
-  const [proficiencyLevels, setProficiencyLevels] = useState([
-    { skill: "JavaScript", level: 85 },
-    { skill: "React.js", level: 80 },
-    { skill: "Node.js", level: 75 },
-    { skill: "MongoDB", level: 70 },
-    { skill: "Java", level: 85 },
-    { skill: "C++", level: 80 }
-  ]);
-
-  const updateSkillLevel = (index: number, change: number) => {
-    setProficiencyLevels(prev => prev.map((item, i) => 
-      i === index 
-        ? { ...item, level: Math.max(0, Math.min(100, item.level + change)) }
-        : item
-    ));
-  };
-
-  const saveChanges = () => {
-    setIsAdminMode(false);
-    // Here you could save to localStorage or an API
-    localStorage.setItem('skillProficiency', JSON.stringify(proficiencyLevels));
-  };
-
-  const cancelChanges = () => {
-    // Reload from localStorage or reset to default
-    const saved = localStorage.getItem('skillProficiency');
-    if (saved) {
-      setProficiencyLevels(JSON.parse(saved));
-    }
-    setIsAdminMode(false);
-  };
 
   return (
     <section id="skills" className="py-20 relative overflow-hidden">
@@ -142,90 +101,6 @@ const SkillsSection = () => {
           ))}
         </div>
 
-        {/* Skills Progress Visualization */}
-        <div className="mt-16 animate-slide-up [animation-delay:600ms]">
-          <div className="flex justify-between items-center mb-8">
-            <h3 className="text-2xl font-semibold">Proficiency Levels</h3>
-            <div className="flex gap-2">
-              {isAdminMode ? (
-                <>
-                  <Button 
-                    onClick={saveChanges}
-                    size="sm" 
-                    className="bg-green-600 hover:bg-green-700"
-                  >
-                    <Save className="h-4 w-4 mr-2" />
-                    Save
-                  </Button>
-                  <Button 
-                    onClick={cancelChanges}
-                    variant="outline" 
-                    size="sm"
-                  >
-                    <X className="h-4 w-4 mr-2" />
-                    Cancel
-                  </Button>
-                </>
-              ) : (
-                <Button 
-                  onClick={() => setIsAdminMode(true)}
-                  variant="outline" 
-                  size="sm"
-                >
-                  <Settings className="h-4 w-4 mr-2" />
-                  Customize
-                </Button>
-              )}
-            </div>
-          </div>
-          <div className="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto">
-            {proficiencyLevels.map((item, index) => (
-              <div 
-                key={index} 
-                className="space-y-2 animate-slide-in-left hover:scale-105 transition-transform duration-300"
-                style={{ animationDelay: `${index * 100 + 800}ms` }}
-              >
-                <div className="flex justify-between items-center text-sm">
-                  <span className="font-medium">{item.skill}</span>
-                  <div className="flex items-center gap-2">
-                    {isAdminMode && (
-                      <>
-                        <Button
-                          size="sm"
-                          variant="outline"
-                          onClick={() => updateSkillLevel(index, -5)}
-                          className="h-6 w-6 p-0"
-                        >
-                          <Minus className="h-3 w-3" />
-                        </Button>
-                        <Button
-                          size="sm"
-                          variant="outline"
-                          onClick={() => updateSkillLevel(index, 5)}
-                          className="h-6 w-6 p-0"
-                        >
-                          <Plus className="h-3 w-3" />
-                        </Button>
-                      </>
-                    )}
-                    <span className="text-muted-foreground min-w-[3rem] text-right">{item.level}%</span>
-                  </div>
-                </div>
-                <div className="h-3 bg-muted rounded-full overflow-hidden shadow-inner">
-                  <div 
-                    className="h-full bg-gradient-primary rounded-full transition-all duration-2000 ease-out animate-pulse-glow relative"
-                    style={{ 
-                      width: `${item.level}%`,
-                      animationDelay: `${index * 200 + 1000}ms`
-                    }}
-                  >
-                    <div className="absolute inset-0 bg-white/20 rounded-full animate-pulse"></div>
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
       </div>
     </section>
   );
